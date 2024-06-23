@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permutaciones - Profesorado en Matemáticas</title>
+    <link rel="stylesheet" href="styles_page3.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Matemáticas con Diazepam</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li>
+                    <a href="#">Temas</a>
+                    <ul>
+                        <li><a href="page4.html">Factorial</a></li>
+                        <li><a href="page1.html">Combinaciones</a></li>
+                        <li><a href="page2.html">Variaciones</a></li>
+                        <li><a href="page3.html">Permutaciones</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Recursos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Permutaciones</h2>
+        <p>En matemáticas, las permutaciones son todas las posibles formas de ordenar un conjunto de elementos. A diferencia de las variaciones, en las permutaciones el orden de los elementos sí importa y no se pueden repetir elementos dentro de la misma permutación.</p>
+
+        <h3>Ejemplo de Permutaciones:</h3>
+        <div class="main-content">
+            <p>Calcular el número de permutaciones posibles de los dígitos {1, 2, 3}:</p>
+            <div class="formula-container">
+                <p class="formula-text">
+                    La fórmula para calcular permutaciones es:
+                </p>
+                <div class="formula">
+                    \[
+                    P(n) = n!
+                    \]
+                </div>
+                <p class="formula-text">Donde \( n \) es el número total de elementos y \( n! \) representa el factorial de \( n \).</p>
+                <p class="formula-text">Aplicando los valores:</p>
+                <div class="formula">
+                    \[
+                    P(3) = 3! = 3 \times 2 \times 1 = 6
+                    \]
+                </div>
+                <p class="formula-text">Por lo tanto, hay 6 permutaciones posibles de los dígitos {1, 2, 3}.</p>
+            </div>
+        </div>
+
+        <h3>Ejemplos en la Vida Cotidiana:</h3>
+        <p>Las permutaciones se encuentran en muchos contextos cotidianos, como:</p>
+        <ul>
+            <li>Orden de letras en una contraseña.</li>
+            <li>Secuencia de dígitos en números de teléfono.</li>
+            <li>Orden de cartas en una baraja.</li>
+            <li>Orden de colores en una bandera.</li>
+        </ul>
+
+        <h3>Actividades de Práctica:</h3>
+        <div class="actividad">
+            <p>1. ¿Cuántas permutaciones diferentes se pueden formar con los dígitos {1, 2, 3, 4}?</p>
+            <input type="text" id="actividad1" placeholder="Tu respuesta...">
+            <button onclick="verificarRespuesta(1)">Verificar</button>
+            <p id="resultado1"></p>
+        </div>
+        <div class="actividad">
+            <p>2. ¿Cuántas permutaciones diferentes se pueden formar con los colores {rojo, azul, verde}?</p>
+            <input type="text" id="actividad2" placeholder="Tu respuesta...">
+            <button onclick="verificarRespuesta(2)">Verificar</button>
+            <p id="resultado2"></p>
+        </div>
+        <div class="actividad">
+            <p>3. ¿Cuántas permutaciones diferentes se pueden formar con las letras {A, B, C, D, E}?</p>
+            <input type="text" id="actividad3" placeholder="Tu respuesta...">
+            <button onclick="verificarRespuesta(3)">Verificar</button>
+            <p id="resultado3"></p>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Profesorado en Matemáticas
+    </footer>
+
+    <script>
+        function verificarRespuesta(numeroActividad) {
+            var respuesta = document.getElementById('actividad' + numeroActividad).value.toLowerCase().trim();
+            var resultado = document.getElementById('resultado' + numeroActividad);
+            var respuestaCorrecta = obtenerRespuestaCorrecta(numeroActividad).toLowerCase().trim();
+
+            if (respuesta === respuestaCorrecta) {
+                resultado.textContent = '¡Respuesta correcta!';
+                resultado.style.color = 'green';
+            } else {
+                resultado.textContent = 'Respuesta incorrecta. Inténtalo de nuevo.';
+                resultado.style.color = 'red';
+            }
+        }
+
+        function obtenerRespuestaCorrecta(numeroActividad) {
+            switch (numeroActividad) {
+                case 1:
+                    return '24';
+                case 2:
+                    return '6';
+                case 3:
+                    return '120';
+                default:
+                    return '';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial - Profesorado en Matemáticas</title>
+    <link rel="stylesheet" href="styles_page4.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Matemáticas con Diazepam</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li>
+                    <a href="#">Temas</a>
+                    <ul>
+                        <li><a href="page4.html">Factorial</a></li>
+                        <li><a href="page1.html">Combinaciones</a></li>
+                        <li><a href="page2.html">Variaciones</a></li>
+                        <li><a href="page3.html">Permutaciones</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Recursos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Factorial</h2>
+        <p>En matemáticas, el factorial de un número entero positivo \( n \), denotado como \( n! \), es el producto de todos los enteros positivos menores o iguales a \( n \).</p>
+
+        <h3>Ejemplo de Factorial:</h3>
+        <div class="main-content">
+            <p>Calcular el factorial de 5:</p>
+            <div class="formula-container">
+                <p class="formula-text">
+                    La fórmula para calcular el factorial es:
+                </p>
+                <div class="formula">
+                    \[
+                    n! = n \times (n - 1) \times (n - 2) \times \ldots \times 1
+                    \]
+                </div>
+                <p class="formula-text">Aplicando el valor:</p>
+                <div class="formula">
+                    \[
+                    5! = 5 \times 4 \times 3 \times 2 \times 1 = 120
+                    \]
+                </div>
+                <p class="formula-text">Por lo tanto, \( 5! = 120 \).</p>
+            </div>
+        </div>
+
+        <h3>Ejemplos en la Vida Cotidiana:</h3>
+        <p>El factorial se encuentra en contextos prácticos, como:</p>
+        <ul>
+            <li>Calcular el número de formas de ordenar elementos.</li>
+            <li>Probabilidades en combinaciones de eventos.</li>
+            <li>Modelado matemático en ciencias y estadísticas.</li>
+        </ul>
+
+        <h3>Actividades de Práctica:</h3>
+        <div class="actividad">
+            <p>1. Calcula \( 4! \).</p>
+            <input type="text" id="actividad1" placeholder="Tu respuesta...">
+            <button onclick="verificarRespuesta(1)">Verificar</button>
+            <p id="resultado1"></p>
+        </div>
+        <div class="actividad">
+            <p>2. Calcula \( 6! \).</p>
+            <input type="text" id="actividad2" placeholder="Tu respuesta...">
+            <button onclick="verificarRespuesta(2)">Verificar</button>
+            <p id="resultado2"></p>
+        </div>
+        <div class="actividad">
+            <p>3. Calcula \( 3! \).</p>
+            <input type="text" id="actividad3" placeholder="Tu respuesta...">
+            <button onclick="verificarRespuesta(3)">Verificar</button>
+            <p id="resultado3"></p>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Profesorado en Matemáticas
+    </footer>
+
+    <script>
+        function verificarRespuesta(numeroActividad) {
+            var respuesta = document.getElementById('actividad' + numeroActividad).value.toLowerCase().trim();
+            var resultado = document.getElementById('resultado' + numeroActividad);
+            var respuestaCorrecta = obtenerRespuestaCorrecta(numeroActividad).toLowerCase().trim();
+
+            if (respuesta === respuestaCorrecta) {
+                resultado.textContent = '¡Respuesta correcta!';
+                resultado.style.color = 'green';
+            } else {
+                resultado.textContent = 'Respuesta incorrecta. Inténtalo de nuevo.';
+                resultado.style.color = 'red';
+            }
+        }
+
+        function obtenerRespuestaCorrecta(numeroActividad) {
+            switch (numeroActividad) {
+                case 1:
+                    return '24';
+                case 2:
+                    return '720';
+                case 3:
+                    return '6';
+                default:
+                    return '';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+/* Estilos generales del cuerpo y del encabezado */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('fondo.png'); /* Ruta a tu archivo JFIF */
+    background-size: cover; /* Cubre todo el fondo */
+    background-position: center; /* Centra la imagen */
+    color: white;
+    overflow: auto; /* Permitir desplazamiento vertical */
+}
+
+header {
+    background-color: rgba(22, 160, 133, 0.7); /* Celeste claro con transparencia */
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: fixed; /* Hacer que el header sea fijo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegurarse de que esté por encima del contenido */
+    box-sizing: border-box; /* Incluir padding y borde en el tamaño total */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #fff; /* Color blanco */
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    background-color: rgba(39, 174, 96, 0.9); /* Verde con transparencia */
+    border-radius: 10px; /* Redondea los bordes del menú */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    margin-top: 1em; /* Para compensar el espacio del header fijo */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 0.8em 1.2em; /* Ajusta el padding según sea necesario */
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+    border-radius: 5px; /* Redondea los bordes de los elementos */
+    background-color: rgba(0, 0, 0, 0); /* Fondo inicialmente transparente */
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Color de fondo al pasar el mouse */
+    color: #fff; /* Cambia el color del texto al pasar el mouse */
+}
+
+nav ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: rgba(39, 174, 96, 0.9); /* Verde con transparencia */
+    border-radius: 10px; /* Redondea los bordes del menú desplegable */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+main {
+    padding: 2em;
+    text-align: justify;
+    margin-top: 5em; /* Para compensar el header fijo */
+}
+
+/* Estilos específicos para la página de variaciones (page2.html) */
+.main-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.main-content h3 {
+    font-size: 1.5em;
+    color: #27ae60; /* Verde */
+    margin-top: 2em;
+}
+
+/* Estilos para la fórmula y el texto de la fórmula */
+.formula-container {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+.formula-text {
+    color: black;
+    text-align: center;
+}
+
+.formula {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para las actividades */
+.actividad {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.actividad p {
+    color: white;
+}
+
+.actividad input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.actividad button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.actividad button:hover {
+    background-color: #1e8449;
+}
+
+footer {
+    background-color: rgba(22, 160, 133, 0.7); /* Celeste claro con transparencia */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

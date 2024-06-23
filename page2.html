@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variaciones - Profesorado en Matemáticas</title>
+    <link rel="stylesheet" href="styles_page2.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Matemáticas con Diazepam</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li>
+                    <a href="#">Temas</a>
+                    <ul>
+                        <li><a href="page4.html">Factorial</a></li>
+                        <li><a href="page1.html">Combinaciones</a></li>
+                        <li><a href="page2.html">Variaciones</a></li>
+                        <li><a href="page3.html">Permutaciones</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Recursos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Variaciones</h2>
+        <p>En matemáticas, las variaciones son agrupaciones ordenadas de elementos tomados de un conjunto finito sin repetición.</p>
+
+        <h3>Ejemplo de Variaciones:</h3>
+        <div class="main-content">
+            <p>Calcular el número de variaciones posibles de elegir 2 elementos de un conjunto de 4 elementos:</p>
+            <div class="formula-container">
+                <p class="formula-text">
+                    La fórmula para calcular variaciones es:
+                </p>
+                <div class="formula">
+                    \[
+                    V(n, k) = \frac{n!}{(n-k)!}
+                    \]
+                </div>
+                <p class="formula-text">Donde:</p>
+                <ul class="formula-text">
+                    <li>\( n = 4 \) (Número total de elementos)</li>
+                    <li>\( k = 2 \) (Número de elementos a elegir)</li>
+                    <li>\( n! \) representa el factorial de \( n \)</li>
+                </ul>
+                <p class="formula-text">Aplicando los valores:</p>
+                <div class="formula">
+                    \[
+                    V(4, 2) = \frac{4!}{(4-2)!} = \frac{4 \times 3 \times 2 \times 1}{2 \times 1} = 12
+                    \]
+                </div>
+                <p class="formula-text">Por lo tanto, hay 12 variaciones posibles de elegir 2 elementos de un conjunto de 4 elementos.</p>
+            </div>
+        </div>
+
+        <h3>Ejemplos en la Vida Cotidiana:</h3>
+        <div class="main-content">
+            <p>Las variaciones se pueden observar en diferentes situaciones cotidianas:</p>
+            <ul>
+                <li>Seleccionar 3 estudiantes de un grupo para formar un comité, donde el orden de selección importa.</li>
+                <li>Crear una contraseña de 4 dígitos usando solo los números del 0 al 9, donde no se pueden repetir los dígitos.</li>
+                <li>Elegir las primeras 3 canciones de una lista de reproducción para un evento, donde el orden de las canciones es crucial.</li>
+            </ul>
+        </div>
+
+        <h3>Actividades de Práctica:</h3>
+        <div class="actividad">
+            <p>1. ¿Cuántas variaciones diferentes se pueden formar con los elementos {A, B, C} tomados de a 2?</p>
+            <input type="text" id="actividad1" placeholder="Tu respuesta...">
+            <button onclick="verificarRespuesta(1)">Verificar</button>
+            <p id="resultado1"></p>
+        </div>
+        <div class="actividad">
+            <p>2. ¿Cuántas variaciones diferentes se pueden formar con los elementos {1, 2, 3, 4} tomados de a 3?</p>
+            <input type="text" id="actividad2" placeholder="Tu respuesta...">
+            <button onclick="verificarRespuesta(2)">Verificar</button>
+            <p id="resultado2"></p>
+        </div>
+        <div class="actividad">
+            <p>3. ¿Cuántas variaciones diferentes se pueden formar con los elementos {rojo, azul, verde, amarillo} tomados de a 2?</p>
+            <input type="text" id="actividad3" placeholder="Tu respuesta...">
+            <button onclick="verificarRespuesta(3)">Verificar</button>
+            <p id="resultado3"></p>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Profesorado en Matemáticas
+    </footer>
+
+    <script>
+        function verificarRespuesta(numeroActividad) {
+            var respuesta = document.getElementById('actividad' + numeroActividad).value.toLowerCase().trim();
+            var resultado = document.getElementById('resultado' + numeroActividad);
+            var respuestaCorrecta = obtenerRespuestaCorrecta(numeroActividad).toLowerCase().trim();
+
+            if (respuesta === respuestaCorrecta) {
+                resultado.textContent = '¡Respuesta correcta!';
+                resultado.style.color = 'green';
+            } else {
+                resultado.textContent = 'Respuesta incorrecta. Inténtalo de nuevo.';
+                resultado.style.color = 'red';
+            }
+        }
+
+        function obtenerRespuestaCorrecta(numeroActividad) {
+            switch (numeroActividad) {
+                case 1:
+                    return '6';
+                case 2:
+                    return '24';
+                case 3:
+                    return '12';
+                default:
+                    return '';
+            }
+        }
+    </script>
+</body>
+</html>
