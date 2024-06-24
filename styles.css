@@ -1,19 +1,47 @@
+/* Estilos generales del cuerpo y del encabezado */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-image: url('fondo.png'); /* Ruta a tu archivo JFIF */
+    background-size: cover; /* Cubre todo el fondo */
+    background-position: center; /* Centra la imagen */
+    color: white;
+    overflow: auto; /* Permitir desplazamiento vertical */
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+    background-color: rgba(22, 160, 133, 0.7); /* Celeste claro con transparencia */
+    padding: 1em;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: fixed; /* Hacer que el header sea fijo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegurarse de que esté por encima del contenido */
+    box-sizing: border-box; /* Incluir padding y borde en el tamaño total */
 }
 
 header h1 {
     margin: 0;
+    font-size: 1.5em;
+    color: #fff; /* Color blanco */
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    background-color: rgba(39, 174, 96, 0.9); /* Verde con transparencia */
+    border-radius: 10px; /* Redondea los bordes del menú */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
 nav ul {
@@ -21,8 +49,6 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
-    background-color: #444;
 }
 
 nav ul li {
@@ -30,76 +56,77 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
-    padding: 15px;
     text-decoration: none;
+    color: white;
+    padding: 0.8em 1.2em; /* Ajusta el padding según sea necesario */
     display: block;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+    border-radius: 5px; /* Redondea los bordes de los elementos */
+    background-color: rgba(0, 0, 0, 0); /* Fondo inicialmente transparente */
 }
 
 nav ul li a:hover {
-    background-color: #555;
+    background-color: rgba(255, 255, 255, 0.2); /* Color de fondo al pasar el mouse */
+    color: #fff; /* Cambia el color del texto al pasar el mouse */
 }
 
 nav ul ul {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #444;
-    padding: 0;
-    list-style: none;
+    display: none;
+    background-color: rgba(39, 174, 96, 0.9); /* Verde con transparencia */
+    border-radius: 10px; /* Redondea los bordes del menú desplegable */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
 nav ul li:hover > ul {
     display: block;
 }
 
-nav ul ul li a {
-    padding: 10px 15px;
-}
-
 main {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    padding: 2em;
+    text-align: justify;
+    margin-top: 5em; /* Ajusta esto según la altura de tu header */
+    margin-bottom: 5em; /* Ajusta esto según la altura de tu footer */
 }
 
-h2, h3 {
-    color: #333;
+main h3 {
+    font-size: 1.5em;
+    color: #27ae60; /* Verde */
+    margin-top: 2em;
+}
+
+main ul {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    padding: 10px;
+    border-radius: 10px;
+    list-style: none;
+}
+
+main ul li {
+    margin-bottom: 10px;
+}
+
+main ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+main ul li a:hover {
+    color: #27ae60; /* Verde */
 }
 
 footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #333;
+    background-color: rgba(22, 160, 133, 0.7); /* Celeste claro con transparencia */
     color: #fff;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul li a {
-        padding: 10px;
-        width: 100%;
-    }
-
-    nav ul ul {
-        position: static;
-    }
-
-    nav ul ul li a {
-        padding: 10px;
-    }
-
-    main {
-        padding: 10px;
-    }
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000; /* Asegurarse de que esté por encima del contenido */
 }
