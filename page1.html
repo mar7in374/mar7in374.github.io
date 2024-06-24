@@ -95,6 +95,22 @@
             <button onclick="verificarRespuesta(3)">Verificar</button>
             <p id="resultado3"></p>
         </div>
+
+        <h2>Combinaciones</h2>
+    <div>
+        <label for="num-cards">Número de cartas:</label>
+        <input type="number" id="num-cards" value="2" min="2" max="12">
+        <label for="num-combinations">Número de combinaciones:</label>
+        <input type="number" id="num-combinations" value="2" min="2" max="12">
+        <button onclick="generarCartas()">Generar</button>
+    </div>
+
+    <div id="cartas-container"></div>
+    <div id="combinaciones-container"></div>
+</div>
+<div id="cartas-container"></div>
+<div id="combinaciones-container"></div>
+
     </main>
 
     <footer>
@@ -102,32 +118,63 @@
     </footer>
 
     <script>
-        function verificarRespuesta(numeroActividad) {
-            var respuesta = document.getElementById('actividad' + numeroActividad).value.toLowerCase().trim();
-            var resultado = document.getElementById('resultado' + numeroActividad);
-            var respuestaCorrecta = obtenerRespuestaCorrecta(numeroActividad).toLowerCase().trim();
-
-            if (respuesta === respuestaCorrecta) {
-                resultado.textContent = '¡Respuesta correcta!';
-                resultado.style.color = 'green';
-            } else {
-                resultado.textContent = 'Respuesta incorrecta. Inténtalo de nuevo.';
-                resultado.style.color = 'red';
+        const palos = ['hearts'];
+        const valores = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        
+        function generarCartas() {
+            const numCards = parseInt(document.getElementById('num-cards').value);
+            const numCombinations = parseInt(document.getElementById('num-combinations').value);
+            const cartasContainer = document.getElementById('cartas-container');
+            const combinacionesContainer = document.getElementById('combinaciones-container');
+        
+            cartasContainer.innerHTML = '';
+            combinacionesContainer.innerHTML = '';
+        
+            const cartas = [];
+            for (let i = 0; i < numCards; i++) {
+                const valor = valores[i];
+                const carta = `${valor} of ${palos[0]}`;
+                cartas.push({ valor, palo: palos[0] });
+                const cartaDiv = document.createElement('div');
+                cartaDiv.className = 'carta';
+                cartaDiv.innerHTML = `<span class="valor">${valor}</span> <span class="palo">&hearts;</span>`;
+                cartasContainer.appendChild(cartaDiv);
             }
+        
+            const combinaciones = getCombinations(cartas, numCombinations);
+            combinaciones.forEach(combinacion => {
+                const combinacionDiv = document.createElement('div');
+                combinacionDiv.className = 'combinacion';
+                combinacion.forEach(carta => {
+                    const cartaDiv = document.createElement('div');
+                    cartaDiv.className = 'carta-grafica';
+                    cartaDiv.innerHTML = `<span class="valor">${carta.valor}</span> <span class="palo">&hearts;</span>`;
+                    combinacionDiv.appendChild(cartaDiv);
+                });
+                combinacionesContainer.appendChild(combinacionDiv);
+            });
         }
-
-        function obtenerRespuestaCorrecta(numeroActividad) {
-            switch (numeroActividad) {
-                case 1:
-                    return '3';
-                case 2:
-                    return '4';
-                case 3:
-                    return '6';
-                default:
-                    return '';
+        
+        function getCombinations(array, size) {
+            function p(t, i) {
+                if (t.length === size) {
+                    result.push(t);
+                    return;
+                }
+                if (i + 1 > array.length) {
+                    return;
+                }
+                p(t.concat(array[i]), i + 1);
+                p(t, i + 1);
             }
+        
+            var result = [];
+            p([], 0);
+            return result;
         }
-    </script>
+        </script>
+        
+        
+        
 </body>
 </html>

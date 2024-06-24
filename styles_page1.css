@@ -184,3 +184,96 @@ footer {
     width: 100%;
     bottom: 0;
 }
+/* Nuevos estilos para el generador de cartas */
+/* Estilos para el generador de cartas y combinaciones */
+.card-generator {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.card-generator label {
+    display: block;
+    margin-top: 10px;
+    color: white;
+}
+
+.card-generator input {
+    display: block;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(100% - 22px);
+}
+
+.card-generator button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.card-generator button:hover {
+    background-color: #1e8449;
+}
+
+#cartas-container, #combinaciones-container {
+    margin-top: 20px;
+}
+
+.carta {
+    display: inline-block;
+    background-color: white;
+    color: red;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid red;
+    border-radius: 10px;
+    width: 60px;
+    text-align: center;
+    white-space: nowrap; /* Evita que las cartas se rompan en varias líneas */
+}
+
+.carta .valor {
+    font-size: 1.5em;
+}
+
+.carta .palo {
+    font-size: 1.2em;
+}
+
+.carta-grafica {
+    display: inline-block;
+    background-color: white;
+    color: red;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid red;
+    border-radius: 10px;
+    width: 60px;
+    text-align: center;
+    white-space: nowrap; /* Evita que las cartas se rompan en varias líneas */
+}
+
+.carta-grafica .valor {
+    font-size: 1.5em;
+}
+
+.carta-grafica .palo {
+    font-size: 1.2em;
+}
+
+.combinacion {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: white;
+    white-space: nowrap; /* Evita que las combinaciones se rompan en varias líneas */
+}
