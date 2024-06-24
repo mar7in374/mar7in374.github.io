@@ -7,6 +7,60 @@
     <link rel="stylesheet" href="styles_page1.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Estilos para las cartas de poker */
+        .cartas-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carta {
+            background-color: #ff6347; /* Rojo */
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            width: 80px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos para las combinaciones visuales */
+        .combinaciones-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .combinacion {
+            background-color: #3498db; /* Azul */
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            display: flex;
+            gap: 5px;
+        }
+
+        .carta-grafica {
+            background-color: #3498db; /* Azul */
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -76,6 +130,20 @@
             <li><strong>Equipo de Trabajo:</strong> Al formar equipos para un proyecto en la escuela o en el trabajo, puedes usar combinaciones para ver todas las posibles agrupaciones de miembros del equipo.</li>
         </ul>
 
+        <h3>Generador de Combinaciones:</h3>
+        <div class="main-content">
+            <div>
+                <label for="num-cards">Número de cartas:</label>
+                <input type="number" id="num-cards" value="2" min="2" max="12">
+                <label for="num-combinations">Número de combinaciones:</label>
+                <input type="number" id="num-combinations" value="2" min="2" max="12">
+                <button onclick="generarCombinaciones()">Generar</button>
+            </div>
+
+            <div id="cartas-container" class="cartas-container"></div>
+            <div id="combinaciones-container" class="combinaciones-container"></div>
+        </div>
+
         <h3>Actividades de Práctica:</h3>
         <div class="actividad">
             <p>1. ¿Cuántas combinaciones diferentes se pueden formar con los elementos {X, Y, Z} tomados de a 2?</p>
@@ -95,86 +163,66 @@
             <button onclick="verificarRespuesta(3)">Verificar</button>
             <p id="resultado3"></p>
         </div>
-
-        <h2>Combinaciones</h2>
-    <div>
-        <label for="num-cards">Número de cartas:</label>
-        <input type="number" id="num-cards" value="2" min="2" max="12">
-        <label for="num-combinations">Número de combinaciones:</label>
-        <input type="number" id="num-combinations" value="2" min="2" max="12">
-        <button onclick="generarCartas()">Generar</button>
-    </div>
-
-    <div id="cartas-container"></div>
-    <div id="combinaciones-container"></div>
-</div>
-<div id="cartas-container"></div>
-<div id="combinaciones-container"></div>
-
     </main>
 
     <footer>
         &copy; 2024 Profesorado en Matemáticas
     </footer>
-
-    <script>
-        const palos = ['hearts'];
-        const valores = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-        
-        function generarCartas() {
-            const numCards = parseInt(document.getElementById('num-cards').value);
-            const numCombinations = parseInt(document.getElementById('num-combinations').value);
-            const cartasContainer = document.getElementById('cartas-container');
-            const combinacionesContainer = document.getElementById('combinaciones-container');
-        
-            cartasContainer.innerHTML = '';
-            combinacionesContainer.innerHTML = '';
-        
-            const cartas = [];
-            for (let i = 0; i < numCards; i++) {
-                const valor = valores[i];
-                const carta = `${valor} of ${palos[0]}`;
-                cartas.push({ valor, palo: palos[0] });
+            <script>
+    const palos = ['hearts'];
+    const valores = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+    
+    function generarCombinaciones() {
+        const numCards = parseInt(document.getElementById('num-cards').value);
+        const numCombinations = parseInt(document.getElementById('num-combinations').value);
+        const cartasContainer = document.getElementById('cartas-container');
+        const combinacionesContainer = document.getElementById('combinaciones-container');
+    
+        cartasContainer.innerHTML = '';
+        combinacionesContainer.innerHTML = '';
+    
+        const cartas = [];
+        for (let i = 0; i < numCards; i++) {
+            const valor = valores[i];
+            const carta = `${valor} of ${palos[0]}`;
+            cartas.push({ valor, palo: palos[0] });
+            const cartaDiv = document.createElement('div');
+            cartaDiv.className = 'carta';
+            cartaDiv.innerHTML = `<span class="valor">${valor}</span> <span class="palo">&hearts;</span>`;
+            cartasContainer.appendChild(cartaDiv);
+        }
+    
+        const combinaciones = getCombinations(cartas, numCombinations);
+        combinaciones.forEach(combinacion => {
+            const combinacionDiv = document.createElement('div');
+            combinacionDiv.className = 'combinacion';
+            combinacion.forEach(carta => {
                 const cartaDiv = document.createElement('div');
-                cartaDiv.className = 'carta';
-                cartaDiv.innerHTML = `<span class="valor">${valor}</span> <span class="palo">&hearts;</span>`;
-                cartasContainer.appendChild(cartaDiv);
-            }
-        
-            const combinaciones = getCombinations(cartas, numCombinations);
-            combinaciones.forEach(combinacion => {
-                const combinacionDiv = document.createElement('div');
-                combinacionDiv.className = 'combinacion';
-                combinacion.forEach(carta => {
-                    const cartaDiv = document.createElement('div');
-                    cartaDiv.className = 'carta-grafica';
-                    cartaDiv.innerHTML = `<span class="valor">${carta.valor}</span> <span class="palo">&hearts;</span>`;
-                    combinacionDiv.appendChild(cartaDiv);
-                });
-                combinacionesContainer.appendChild(combinacionDiv);
+                cartaDiv.className = 'carta-grafica';
+                cartaDiv.innerHTML = `<span class="valor">${carta.valor}</span> <span class="palo">&hearts;</span>`;
+                combinacionDiv.appendChild(cartaDiv);
             });
-        }
-        
-        function getCombinations(array, size) {
-            function p(t, i) {
-                if (t.length === size) {
-                    result.push(t);
-                    return;
-                }
-                if (i + 1 > array.length) {
-                    return;
-                }
-                p(t.concat(array[i]), i + 1);
-                p(t, i + 1);
+            combinacionesContainer.appendChild(combinacionDiv);
+        });
+    }
+    
+    function getCombinations(array, size) {
+        function p(t, i) {
+            if (t.length === size) {
+                result.push(t);
+                return;
             }
-        
-            var result = [];
-            p([], 0);
-            return result;
+            if (i + 1 > array.length) {
+                return;
+            }
+            p(t.concat(array[i]), i + 1);
+            p(t, i + 1);
         }
-        </script>
-        
-        
-        
+    
+        var result = [];
+        p([], 0);
+        return result;
+    }
+</script>
 </body>
 </html>

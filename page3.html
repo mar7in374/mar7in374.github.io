@@ -7,6 +7,29 @@
     <link rel="stylesheet" href="styles_page3.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Estilos para las cartas de poker */
+        .cartas-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .carta {
+            background-color: #ff6347; /* Rojo */
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            width: 80px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -65,6 +88,20 @@
             <li>Orden de colores en una bandera.</li>
         </ul>
 
+        <h3>Generador de Cartas:</h3>
+        <div class="main-content">
+            <label for="numCartas">Número de Cartas (1-12):</label>
+            <input type="number" id="numCartas" min="1" max="12" value="1">
+            <button onclick="generarCartas()">Generar Cartas</button>
+            <div id="cartas-container" class="cartas-container"></div>
+        </div>
+
+        <h3>Generador de Permutaciones:</h3>
+        <div class="main-content">
+            <button onclick="generarPermutacionesConCartas()">Generar Permutaciones</button>
+            <div id="permutaciones-container" class="permutaciones-container"></div>
+        </div>
+
         <h3>Actividades de Práctica:</h3>
         <div class="actividad">
             <p>1. ¿Cuántas permutaciones diferentes se pueden formar con los dígitos {1, 2, 3, 4}?</p>
@@ -91,30 +128,107 @@
     </footer>
 
     <script>
-        function verificarRespuesta(numeroActividad) {
-            var respuesta = document.getElementById('actividad' + numeroActividad).value.toLowerCase().trim();
-            var resultado = document.getElementById('resultado' + numeroActividad);
-            var respuestaCorrecta = obtenerRespuestaCorrecta(numeroActividad).toLowerCase().trim();
+        // Generar cartas de poker de corazones
+        function generarCartas() {
+            const numCartas = parseInt(document.getElementById('numCartas').value);
+            const cartasContainer = document.getElementById('cartas-container');
+            cartasContainer.innerHTML = '';
 
-            if (respuesta === respuestaCorrecta) {
-                resultado.textContent = '¡Respuesta correcta!';
-                resultado.style.color = 'green';
-            } else {
-                resultado.textContent = 'Respuesta incorrecta. Inténtalo de nuevo.';
-                resultado.style.color = 'red';
+            const elementos = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+            const paloCorazones = '\u2665'; // Código Unicode para corazón rojo
+
+            for (let i = 0; i < numCartas; i++) {
+                const carta = document.createElement('div');
+                carta.classList.add('carta');
+                carta.textContent = elementos[i % elementos.length] + paloCorazones;
+                cartasContainer.appendChild(carta);
             }
         }
 
-        function obtenerRespuestaCorrecta(numeroActividad) {
+        // Generar permutaciones con cartas visuales
+        function generarPermutacionesConCartas() {
+            const cartas = document.querySelectorAll('.cartas-container .carta');
+            const elementos = Array.from(cartas).map(carta => carta.textContent.trim());
+
+            const permutaciones = generarPermutaciones(elementos);
+
+            const permutacionesContainer = document.getElementById('permutaciones-container');
+            permutacionesContainer.innerHTML = '';
+
+            permutaciones.forEach(permutacion => {
+                const permutacionElemento = document.createElement('div');
+                permutacionElemento.classList.add('carta');
+                permutacionElemento.textContent = permutacion.join(' ');
+                permutacionesContainer.appendChild(permutacionElemento);
+            });
+        }
+
+        // Función para generar permutaciones
+        function generarPermutaciones(elementos) {
+            const permutaciones = [];
+
+            function generarPermutacionesRecursivo(actual, disponibles) {
+                if (actual.length === elementos.length) {
+                    permutaciones.push(actual.slice());
+                    return;
+                }
+
+                for (let i = 0; i < disponibles.length; i++) {
+                    actual.push(disponibles[i]);
+                    const nuevosDisponibles = disponibles.filter((_, index) => index !== i);
+                    generarPermutacionesRecursivo(actual, nuevosDisponibles);
+                    actual.pop();
+                }
+            }
+
+            generarPermutacionesRecursivo([], elementos);
+            return permutaciones;
+        }
+
+        // Verificar respuestas de actividades
+        function verificarRespuesta(numeroActividad) {
+            let respuesta;
+            let resultadoElemento;
+
             switch (numeroActividad) {
                 case 1:
-                    return '24';
+                    respuesta = document.getElementById('actividad1').value.trim().toLowerCase();
+                    if (respuesta === '24') {
+                        resultadoElemento = document.getElementById('resultado1');
+                        resultadoElemento.textContent = '¡Correcto! Hay 24 permutaciones posibles con los dígitos {1, 2, 3, 4}.';
+                        resultadoElemento.style.color = 'green';
+                    } else {
+                        resultadoElemento = document.getElementById('resultado1');
+                        resultadoElemento.textContent = 'Respuesta incorrecta. Intenta de nuevo.';
+                        resultadoElemento.style.color = 'red';
+                    }
+                    break;
                 case 2:
-                    return '6';
+                    respuesta = document.getElementById('actividad2').value.trim().toLowerCase();
+                    if (respuesta === '6') {
+                        resultadoElemento = document.getElementById('resultado2');
+                        resultadoElemento.textContent = '¡Correcto! Hay 6 permutaciones posibles con los colores {rojo, azul, verde}.';
+                        resultadoElemento.style.color = 'green';
+                    } else {
+                        resultadoElemento = document.getElementById('resultado2');
+                        resultadoElemento.textContent = 'Respuesta incorrecta. Intenta de nuevo.';
+                        resultadoElemento.style.color = 'red';
+                    }
+                    break;
                 case 3:
-                    return '120';
+                    respuesta = document.getElementById('actividad3').value.trim().toLowerCase();
+                    if (respuesta === '120') {
+                        resultadoElemento = document.getElementById('resultado3');
+                        resultadoElemento.textContent = '¡Correcto! Hay 120 permutaciones posibles con las letras {A, B, C, D, E}.';
+                        resultadoElemento.style.color = 'green';
+                    } else {
+                        resultadoElemento = document.getElementById('resultado3');
+                        resultadoElemento.textContent = 'Respuesta incorrecta. Intenta de nuevo.';
+                        resultadoElemento.style.color = 'red';
+                    }
+                    break;
                 default:
-                    return '';
+                    break;
             }
         }
     </script>

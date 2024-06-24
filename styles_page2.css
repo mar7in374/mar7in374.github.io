@@ -178,3 +178,69 @@ footer {
     width: 100%;
     bottom: 0;
 }
+/* Estilos específicos para la página de variaciones (page2.html) */
+/* Mantenemos los estilos existentes y añadimos los nuevos */
+
+/* Estilos para las cartas de poker */
+.cartas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.carta {
+    width: 100px; /* Ancho de cada carta */
+    height: 150px; /* Alto de cada carta */
+    background-color: #ff4444; /* Rojo */
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: white;
+}
+
+/* Estilos para las variaciones */
+.variaciones-container {
+    margin-top: 2em;
+}
+
+.variacion {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.variacion h3 {
+    font-size: 1.5em;
+    color: #27ae60; /* Verde */
+    margin-top: 2em;
+}
+
+.variacion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.variacion li {
+    margin-bottom: 5px;
+}
+
+.variacion button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.variacion button:hover {
+    background-color: #1e8449;
+}
