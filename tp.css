@@ -1,0 +1,169 @@
+/* Estilos generales del cuerpo y del encabezado */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('fondo.png'); /* Ruta a tu archivo JFIF */
+    background-size: cover; /* Cubre todo el fondo */
+    background-position: center; /* Centra la imagen */
+    color: white;
+    overflow: auto; /* Permitir desplazamiento vertical */
+}
+
+header {
+    background-color: rgba(22, 160, 133, 0.7); /* Celeste claro con transparencia */
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: fixed; /* Hacer que el header sea fijo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegurarse de que esté por encima del contenido */
+    box-sizing: border-box; /* Incluir padding y borde en el tamaño total */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #fff; /* Color blanco */
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    background-color: rgba(39, 174, 96, 0.9); /* Verde con transparencia */
+    border-radius: 10px; /* Redondea los bordes del menú */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 0.8em 1.2em; /* Ajusta el padding según sea necesario */
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+    border-radius: 5px; /* Redondea los bordes de los elementos */
+    background-color: rgba(0, 0, 0, 0); /* Fondo inicialmente transparente */
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Color de fondo al pasar el mouse */
+    color: #fff; /* Cambia el color del texto al pasar el mouse */
+}
+
+nav ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: rgba(39, 174, 96, 0.9); /* Verde con transparencia */
+    border-radius: 10px; /* Redondea los bordes del menú desplegable */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+main {
+    padding: 2em;
+    text-align: justify;
+    margin-top: 5em; /* Ajusta esto según la altura de tu header */
+    margin-bottom: 5em; /* Ajusta esto según la altura de tu footer */
+}
+
+main h3 {
+    font-size: 1.5em;
+    color: #27ae60; /* Verde */
+    margin-top: 2em;
+}
+
+main ul {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    padding: 10px;
+    border-radius: 10px;
+    list-style: none;
+}
+
+main ul li {
+    margin-bottom: 10px;
+}
+
+main ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+main ul li a:hover {
+    color: #27ae60; /* Verde */
+}
+
+footer {
+    background-color: rgba(22, 160, 133, 0.7); /* Celeste claro con transparencia */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000; /* Asegurarse de que esté por encima del contenido */
+}
+
+/* Estilos específicos para el formulario */
+form {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff; /* Color blanco */
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+button[type="submit"] {
+    background-color: #27ae60; /* Verde */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2ecc71; /* Verde claro */
+}
