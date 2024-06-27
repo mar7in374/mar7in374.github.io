@@ -1,17 +1,17 @@
-/* Estilos generales del cuerpo y del encabezado */
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('fondo.png'); /* Ruta a tu archivo JFIF */
-    background-size: cover; /* Cubre todo el fondo */
-    background-position: center; /* Centra la imagen */
+    background-image: url('fondo.png');
+    background-size: cover; 
+    background-position: center; 
     color: white;
-    overflow: auto; /* Permitir desplazamiento vertical */
+    overflow: auto; 
 }
 
 header {
-    background-color: rgba(22, 160, 133, 0.7); /* Celeste claro con transparencia */
+    background-color: rgba(22, 160, 133, 0.7); 
     padding: 1em;
     text-align: center;
     display: flex;
@@ -19,18 +19,18 @@ header {
     align-items: center;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    position: fixed; /* Hacer que el header sea fijo */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Asegurarse de que esté por encima del contenido */
-    box-sizing: border-box; /* Incluir padding y borde en el tamaño total */
+    z-index: 1000;
+    box-sizing: border-box; 
 }
 
 header h1 {
     margin: 0;
     font-size: 1.5em;
-    color: #fff; /* Color blanco */
+    color: #fff; 
 }
 
 header nav {
@@ -39,9 +39,9 @@ header nav {
 }
 
 nav {
-    background-color: rgba(39, 174, 96, 0.9); /* Verde con transparencia */
-    border-radius: 10px; /* Redondea los bordes del menú */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    background-color: rgba(39, 174, 96, 0.9); 
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
@@ -58,16 +58,16 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: white;
-    padding: 0.8em 1.2em; /* Ajusta el padding según sea necesario */
+    padding: 0.8em 1.2em; 
     display: block;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
-    border-radius: 5px; /* Redondea los bordes de los elementos */
-    background-color: rgba(0, 0, 0, 0); /* Fondo inicialmente transparente */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px; 
+    background-color: rgba(0, 0, 0, 0); 
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Color de fondo al pasar el mouse */
-    color: #fff; /* Cambia el color del texto al pasar el mouse */
+    background-color: rgba(255, 255, 255, 0.2); 
+    color: #fff;
 }
 
 nav ul ul {
@@ -75,9 +75,9 @@ nav ul ul {
     top: 100%;
     left: 0;
     display: none;
-    background-color: rgba(39, 174, 96, 0.9); /* Verde con transparencia */
-    border-radius: 10px; /* Redondea los bordes del menú desplegable */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    background-color: rgba(39, 174, 96, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav ul li:hover > ul {
@@ -87,18 +87,18 @@ nav ul li:hover > ul {
 main {
     padding: 2em;
     text-align: justify;
-    margin-top: 5em; /* Ajusta esto según la altura de tu header */
-    margin-bottom: 5em; /* Ajusta esto según la altura de tu footer */
+    margin-top: 5em; 
+    margin-bottom: 5em; 
 }
 
 main h3 {
     font-size: 1.5em;
-    color: #27ae60; /* Verde */
+    color: #27ae60; 
     margin-top: 2em;
 }
 
 main ul {
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    background-color: rgba(0, 0, 0, 0.6); 
     padding: 10px;
     border-radius: 10px;
     list-style: none;
@@ -115,11 +115,11 @@ main ul li a {
 }
 
 main ul li a:hover {
-    color: #27ae60; /* Verde */
+    color: #27ae60; 
 }
 
 footer {
-    background-color: rgba(22, 160, 133, 0.7); /* Celeste claro con transparencia */
+    background-color: rgba(22, 160, 133, 0.7);
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -128,12 +128,12 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    z-index: 1000; /* Asegurarse de que esté por encima del contenido */
+    z-index: 1000; 
 }
 
-/* Estilos específicos para el formulario */
+
 form {
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 10px;
     max-width: 600px;
@@ -143,7 +143,7 @@ form {
 label {
     display: block;
     margin-bottom: 10px;
-    color: #fff; /* Color blanco */
+    color: #fff; 
 }
 
 input[type="text"], textarea {
@@ -155,7 +155,7 @@ input[type="text"], textarea {
 }
 
 button[type="submit"] {
-    background-color: #27ae60; /* Verde */
+    background-color: #27ae60;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -165,5 +165,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #2ecc71; /* Verde claro */
+    background-color: #2ecc71; 
 }
